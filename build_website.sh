@@ -33,6 +33,8 @@ popd
 
 # step 1: copy in files
 cp -R doc/* gh-pages
+cp doc/asciidoc.1.txt gh-pages/manpage.txt
+cp doc/asciidoc.txt gh-pages/userguide.txt
 { set +x; } 2>/dev/null
 
 # Step 2: Build the files
