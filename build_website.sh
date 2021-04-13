@@ -32,7 +32,7 @@ rm -rf images
 popd
 
 # step 1: copy in files
-cp doc/* gh-pages
+cp -R doc/* gh-pages
 { set +x; } 2>/dev/null
 
 # Step 2: Build the files

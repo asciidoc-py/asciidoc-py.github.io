@@ -26,6 +26,7 @@ jobs:
           docbook-xsl \
           dvipng \
           graphviz \
+          highlight \
           imagemagick \
           libxml2-utils \
           lilypond \
