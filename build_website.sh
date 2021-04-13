@@ -70,7 +70,7 @@ ${ASCIIDOC} -d manpage -b html4 gh-pages/asciidoc.1.txt
 ${ASCIIDOC} -b xhtml11 -d manpage -o gh-pages/asciidoc.1.css-embedded.html gh-pages/asciidoc.1.txt
 ${ASCIIDOC} -d manpage -b docbook gh-pages/asciidoc.1.txt
 pushd gh-pages
-xsltproc --nonet ./manpage.xsl asciidoc.1.xml
+xsltproc --nonet ../docbook-xsl/manpage.xsl asciidoc.1.xml
 rm asciidoc.1.xml
 popd
 
