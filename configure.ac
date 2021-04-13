@@ -1,0 +1,13 @@
+AC_INIT(asciidoc, 9.1.0)
+
+AC_SUBST([PACKAGE_DATE], ['08 February 2021'])
+
+AC_CONFIG_FILES(Makefile)
+
+AC_PROG_SED
+
+AC_PROG_LN_S
+
+AC_PROG_INSTALL
+
+AC_OUTPUT
