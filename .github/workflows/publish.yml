@@ -25,6 +25,7 @@ jobs:
           docbook-xml \
           docbook-xsl \
           dvipng \
+          fop \
           graphviz \
           highlight \
           imagemagick \

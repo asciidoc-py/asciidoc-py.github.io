@@ -83,7 +83,7 @@ mv gh-pages/asciidoc.chunked gh-pages/chunked
 
 ${ASCIIDOC} -n -b docbook gh-pages/article.txt
 pushd gh-pages
-xsltproc --nonet --stringparam admon.textlabel 0 ../asciidoc/resources/docbook-xsl/fo.xsl article.xml > article.fo
+xsltproc --nonet --stringparam admon.textlabel 0 ../docbook-xsl//fo.xsl article.xml > article.fo
 fop article.fo article.pdf
 { set +x; } 2>/dev/null
 rm gh-pages/article.xml
@@ -93,7 +93,7 @@ popd
 set -x
 ${ASCIIDOC} -b docbook gh-pages/asciidoc.txt
 pushd gh-pages
-dblatex -p ../asciidoc/resources/dblatex/asciidoc-dblatex.xsl -s ../asciidoc/resources/dblatex/asciidoc-dblatex.sty -o asciidoc.pdf asciidoc.xml
+dblatex -p ../dblatex/asciidoc-dblatex.xsl -s ../dblatex/asciidoc-dblatex.sty -o asciidoc.pdf asciidoc.xml
 { set +x; } 2>/dev/null
 rm asciidoc.xml
 popd
