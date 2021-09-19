@@ -1,0 +1,6 @@
+asciidoc-py.github.io
+=====================
+
+image:https://github.com/asciidoc-py/asciidoc-py.github.io/actions/workflows/publish.yml/badge.svg?branch=main[Publish to gh-pages, link=https://github.com/asciidoc-py/asciidoc-py.github.io/actions/workflows/publish.yml?query=branch%3Amain]
+
+This repository contains the source code for the asciidoc-py.github.io website.
