@@ -4223,10 +4223,13 @@ The <em>depth</em> macro attribute sets the maximum permitted number of
 <li>
 <p>
 The <code>lines</code> macro attribute can be used to include specific lines of
-  the file. You can specify a range of pages by using <code>..</code> between
-  the two numbers, for example <code>1..10</code> would include the first 10
-  lines. You can include multiple ranges or invdividual pages by using
-  a comma or semi-colon, for example <code>1..10,45,50..60</code>.
+  the file. You can specify individual lines or a range of pages. To
+  specify a range, separate two numbers with <code>..</code>, for example
+  <code>lines="1..10"</code> would include the first 10 lines. You can specify the
+  last line of file as <code>-1</code>, for example <code>lines="10..-1"</code> would include
+  all lines after line 10. You can include multiple ranges or invdividual
+  pages by separating the ranges by a comma or semi-colon, for example
+  <code>lines="1..10,45,50..60"</code>.
 </p>
 </li>
 <li>
@@ -9777,7 +9780,7 @@ General Public License version 2 for more details.</p></div>
 <div id="footer">
 <div id="footer-text">
 Version 9.1.1<br />
-Last updated 2021-09-19 07:12:29 UTC<br />
+Last updated 2021-11-01 18:56:56 UTC<br />
 AsciiDoc is a trademark of the Eclipse Foundation, Inc.
 </div>
 <div id="footer-badges">
