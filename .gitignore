@@ -1,0 +1,4 @@
+.DS_Store
+doc/CHANGELOG.txt
+configure.ac
+docbook-xsl/

@@ -33,7 +33,8 @@ jobs:
           lilypond \
           source-highlight \
           texlive-latex-base \
-          xsltproc
+          xsltproc \
+          wget
 
     - name: Install dependencies
       run: pip install asciidoc==10.0.0a2

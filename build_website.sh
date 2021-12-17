@@ -31,13 +31,28 @@ rm -rf chunked
 rm -rf images
 popd
 
-# step 1: copy in files
+# step 1: fetch some doc files from main repo
+mkdir -p docbook-xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/configure.ac -O configure.ac
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/CHANGELOG.adoc -O docs/CHANGELOG.txt
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/asciidoc-docbook-xsl.txt -O docbook-xsl/asciidoc-docbook-xsl.txt
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/chunked.xsl -O docbook-xsl/chunked.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/common.xsl -O docbook-xsl/common.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/epub.xsl -O docbook-xsl/epub.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/fo.xsl -O docbook-xsl/fo.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/htmlhelp.xsl -O docbook-xsl/htmlhelp.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/manpage.xsl -O docbook-xsl/manpage.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/text.xsl -O docbook-xsl/text.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/xhtml.xsl -O docbook-xsl/xhtml.xsl
+
+
+# step 2: copy in files to gh-pages folder
 cp -R doc/* gh-pages
 cp doc/asciidoc.1.txt gh-pages/manpage.txt
 cp doc/asciidoc.txt gh-pages/userguide.txt
 { set +x; } 2>/dev/null
 
-# Step 2: Build the files
+# Step 3: Build the files
 ASCIIDOC="asciidoc -b xhtml11 -f gh-pages/${LAYOUT}.conf -a icons -a badges -a max-width=70em -a source-highlighter=highlight"
 for file in gh-pages/*.txt; do
     name=${file:9:-4}
@@ -61,7 +76,7 @@ for file in gh-pages/*.txt; do
     { set +x; } 2>/dev/null
 done
 
-# Step 3: build out remaining specific files from doc
+# Step 4: build out remaining specific files from doc
 ASCIIDOC="asciidoc"
 # TODO: investigate epub generation (--epubcheck fails)
 set -x
