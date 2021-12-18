@@ -4,19 +4,6 @@
 # layout2  -  CSS based layout
 LAYOUT=layout2
 
-ASCIIDOCVERSION=$(sed -n '1p' configure.ac | grep -o -e "[0-9]*\.[0-9]*\.[a-z0-9]*")
-# trying to embed this string with spaces into the command below causes
-# sys.argv to get funny, and I cannot figure out why
-ASCIIDOCDATE=$(sed -n '3p' configure.ac | grep -o -e "[0-9]* [A-Z][a-z]* [0-9]*")
-
-# execute this as a function so that we do not run afoul of bash's string interpolation / splitting
-# when trying to execute commands from variables
-asciidoc() {
-    python3 -m asciidoc -a revnumber="${ASCIIDOCVERSION}" -a revdate="${ASCIIDOCDATE}" "$@"
-}
-
-A2X="python3 -m asciidoc.a2x"
-
 set -x
 # Step 0: Initialize the gh-pages folder
 if [ ! -d gh-pages ]; then
@@ -45,6 +32,19 @@ wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/res
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/text.xsl -O docbook-xsl/text.xsl
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/xhtml.xsl -O docbook-xsl/xhtml.xsl
 
+
+ASCIIDOCVERSION=$(sed -n '1p' configure.ac | grep -o -e "[0-9]*\.[0-9]*\.[a-z0-9]*")
+# trying to embed this string with spaces into the command below causes
+# sys.argv to get funny, and I cannot figure out why
+ASCIIDOCDATE=$(sed -n '3p' configure.ac | grep -o -e "[0-9]* [A-Z][a-z]* [0-9]*")
+
+# execute this as a function so that we do not run afoul of bash's string interpolation / splitting
+# when trying to execute commands from variables
+asciidoc() {
+    python3 -m asciidoc -a revnumber="${ASCIIDOCVERSION}" -a revdate="${ASCIIDOCDATE}" "$@"
+}
+
+A2X="python3 -m asciidoc.a2x"
 
 # step 2: copy in files to gh-pages folder
 cp -R doc/* gh-pages
