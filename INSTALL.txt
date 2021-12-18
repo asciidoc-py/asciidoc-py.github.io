@@ -6,11 +6,23 @@ to run.  If you don't already have an up-to-date version of Python
 installed it can be downloaded from the official Python website
 http://www.python.org/.
 
-
 Prerequisites
 -------------
-See the link:README.html[README] page.
 
+- Python 3.5+
+- DocBook XSL Stylesheets
+- xsltproc
+- w3m
+- dblatex
+- FOP
+- make
+
+Installing from PyPI
+--------------------
+Starting from 10.0 release, AsciiDoc.py can be installed from PyPI repository
+by doing the following:
+
+  $ python3 -m pip install asciidoc
 
 Installing from the GitHub repository
 -------------------------------------
@@ -31,40 +43,26 @@ branch:
 [subs="attributes"]
   $ cd ~/bin
   $ git clone https://github.com/asciidoc/asciidoc-py3 asciidoc-{revnumber}
+  $ cd asciidoc-{revnumber}
   $ git checkout {revnumber}
 
 You now have two choices: you can run asciidoc locally from your
-repository or you can use 'autoconf(1)' and 'make(1)' to perform a
-system-wide install.
+repository (e.g. `python3 -m asciidoc` or `python3 -m asciidoc.a2x`) or you
+can use 'autoconf(1)' and 'make(1)' to perform a system-wide install. If you
+wish to update your installation, run `git pull` and re-run `make(1)` to
+re-install the updated version
 
-Running asciidoc from your local copy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Create a symlink to the AsciiDoc script in a search `PATH` directory
-so it's easy to execute `asciidoc` from the command line, for example:
+Uninstalling AsciiDoc.py
+------------------------
 
-[subs="attributes"]
-  $ ln -s ~/bin/asciidoc-{revnumber}/asciidoc.py ~/bin/asciidoc
-  $ ln -s ~/bin/asciidoc-{revnumber}/a2x.py ~/bin/a2x
+To uninstall AsciiDoc.py, if you installed it via PyPI, then simply do the
+following:
 
-Use the git `pull` command to update your local AsciiDoc repository.
+  $ python3 -m pip uninstall asciidoc
 
-Installing asciidoc for all users
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Create `configure` using 'autoconf(1)'; use `configure` to create the
-`Makefile`; run 'make(1)'; build the man pages; install:
+If you installed it via `make(1)`, please do the following:
 
----------------------------------------------
-$ autoconf
-$ ./configure
-$ make
-$ sudo make install
----------------------------------------------
-
-To uninstall:
-
----------------------------------------------
-$ sudo make uninstall
----------------------------------------------
+  $ sudo make uninstall
 
 
 [[X1]]
@@ -124,6 +122,9 @@ http://dblatex.sourceforge.net/[dblatex] and AsciiDoc.
 
 Testing your installation
 -------------------------
+To test out AsciiDoc.py, you will need to install `pytest` and `pytest-mock`
+from PyPI.
+
 Test out asciidoc by changing to the AsciiDoc application directory
 and converting the User Guide document (`./doc/asciidoc.txt`) to XHTML
 (`./doc/asciidoc.html`):
@@ -135,8 +136,15 @@ conformance tests. You can run the tests by executing this command:
 
   $ python3 ./tests/testasciidoc.py run
 
-A full battery of tests can be run from the `Makefile` script in the
-distribution root directory:
+Unit tests can be run by doing:
+
+  $ python3 -m pytest
+
+Doctests can be run by doing:
+
+  $ python3 -m asciidoc.asciidoc --doctest
+
+Running all three of these can be accomplished through the Makefile:
 
   $ make test
 

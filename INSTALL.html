@@ -64,7 +64,54 @@ installed it can be downloaded from the official Python website
 <div class="sect1">
 <h2 id="_prerequisites">Prerequisites</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>See the <a href="README.html">README</a> page.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Python 3.5+
+</p>
+</li>
+<li>
+<p>
+DocBook XSL Stylesheets
+</p>
+</li>
+<li>
+<p>
+xsltproc
+</p>
+</li>
+<li>
+<p>
+w3m
+</p>
+</li>
+<li>
+<p>
+dblatex
+</p>
+</li>
+<li>
+<p>
+FOP
+</p>
+</li>
+<li>
+<p>
+make
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installing_from_pypi">Installing from PyPI</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Starting from 10.0 release, AsciiDoc.py can be installed from PyPI repository
+by doing the following:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>$ python3 -m pip install asciidoc</code></pre>
+</div></div>
 </div>
 </div>
 <div class="sect1">
@@ -95,41 +142,32 @@ Go to the directory you want to install AsciiDoc into and download
 <div class="content">
 <pre><code>$ cd ~/bin
 $ git clone https://github.com/asciidoc/asciidoc-py3 asciidoc-10.1.0
+$ cd asciidoc-10.1.0
 $ git checkout 10.1.0</code></pre>
 </div></div>
 </li>
 </ul></div>
 <div class="paragraph"><p>You now have two choices: you can run asciidoc locally from your
-repository or you can use <em>autoconf(1)</em> and <em>make(1)</em> to perform a
-system-wide install.</p></div>
-<div class="sect2">
-<h3 id="_running_asciidoc_from_your_local_copy">Running asciidoc from your local copy</h3>
-<div class="paragraph"><p>Create a symlink to the AsciiDoc script in a search <code>PATH</code> directory
-so it&#8217;s easy to execute <code>asciidoc</code> from the command line, for example:</p></div>
+repository (e.g. <code>python3 -m asciidoc</code> or <code>python3 -m asciidoc.a2x</code>) or you
+can use <em>autoconf(1)</em> and <em>make(1)</em> to perform a system-wide install. If you
+wish to update your installation, run <code>git pull</code> and re-run <code>make(1)</code> to
+re-install the updated version</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_uninstalling_asciidoc_py">Uninstalling AsciiDoc.py</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>To uninstall AsciiDoc.py, if you installed it via PyPI, then simply do the
+following:</p></div>
 <div class="literalblock">
 <div class="content">
-<pre><code>$ ln -s ~/bin/asciidoc-10.1.0/asciidoc.py ~/bin/asciidoc
-$ ln -s ~/bin/asciidoc-10.1.0/a2x.py ~/bin/a2x</code></pre>
+<pre><code>$ python3 -m pip uninstall asciidoc</code></pre>
 </div></div>
-<div class="paragraph"><p>Use the git <code>pull</code> command to update your local AsciiDoc repository.</p></div>
-</div>
-<div class="sect2">
-<h3 id="_installing_asciidoc_for_all_users">Installing asciidoc for all users</h3>
-<div class="paragraph"><p>Create <code>configure</code> using <em>autoconf(1)</em>; use <code>configure</code> to create the
-<code>Makefile</code>; run <em>make(1)</em>; build the man pages; install:</p></div>
-<div class="listingblock">
-<div class="content">
-<pre><code>$ autoconf
-$ ./configure
-$ make
-$ sudo make install</code></pre>
-</div></div>
-<div class="paragraph"><p>To uninstall:</p></div>
-<div class="listingblock">
+<div class="paragraph"><p>If you installed it via <code>make(1)</code>, please do the following:</p></div>
+<div class="literalblock">
 <div class="content">
 <pre><code>$ sudo make uninstall</code></pre>
 </div></div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -189,6 +227,8 @@ to Create Handsome PDF Documents Without Frustration</a> using
 <div class="sect1">
 <h2 id="_testing_your_installation">Testing your installation</h2>
 <div class="sectionbody">
+<div class="paragraph"><p>To test out AsciiDoc.py, you will need to install <code>pytest</code> and <code>pytest-mock</code>
+from PyPI.</p></div>
 <div class="paragraph"><p>Test out asciidoc by changing to the AsciiDoc application directory
 and converting the User Guide document (<code>./doc/asciidoc.txt</code>) to XHTML
 (<code>./doc/asciidoc.html</code>):</p></div>
@@ -202,8 +242,17 @@ conformance tests. You can run the tests by executing this command:</p></div>
 <div class="content">
 <pre><code>$ python3 ./tests/testasciidoc.py run</code></pre>
 </div></div>
-<div class="paragraph"><p>A full battery of tests can be run from the <code>Makefile</code> script in the
-distribution root directory:</p></div>
+<div class="paragraph"><p>Unit tests can be run by doing:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>$ python3 -m pytest</code></pre>
+</div></div>
+<div class="paragraph"><p>Doctests can be run by doing:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><code>$ python3 -m asciidoc.asciidoc --doctest</code></pre>
+</div></div>
+<div class="paragraph"><p>Running all three of these can be accomplished through the Makefile:</p></div>
 <div class="literalblock">
 <div class="content">
 <pre><code>$ make test</code></pre>
@@ -265,7 +314,7 @@ Guide</em>.</p></div>
 <div id="footer">
 <div id="footer-text">
 Version 10.1.0<br />
-Last updated 2021-12-18 15:28:52 UTC<br />
+Last updated 2021-12-18 16:22:38 UTC<br />
 AsciiDoc is a trademark of the Eclipse Foundation, Inc.
 </div>
 <div id="footer-badges">
