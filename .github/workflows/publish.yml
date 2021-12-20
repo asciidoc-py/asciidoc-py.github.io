@@ -37,7 +37,7 @@ jobs:
           wget
 
     - name: Install dependencies
-      run: pip install asciidoc==10.0.0a2
+      run: pip install asciidoc
 
     - name: Get short SHA
       id: slug
