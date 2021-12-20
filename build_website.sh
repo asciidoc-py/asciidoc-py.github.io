@@ -21,7 +21,7 @@ popd
 # step 1: fetch some doc files from main repo
 mkdir -p docbook-xsl
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/configure.ac -O configure.ac
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/CHANGELOG.adoc -O docs/CHANGELOG.txt
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/CHANGELOG.adoc -O doc/CHANGELOG.txt
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/asciidoc-docbook-xsl.txt -O docbook-xsl/asciidoc-docbook-xsl.txt
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/chunked.xsl -O docbook-xsl/chunked.xsl
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/common.xsl -O docbook-xsl/common.xsl
