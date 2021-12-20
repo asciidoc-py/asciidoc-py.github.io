@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 10.0.0a2" />
+<meta name="generator" content="AsciiDoc 10.1.1" />
 <title>AsciiDoc ChangeLog</title>
 <link rel="stylesheet" href="./asciidoc.css" type="text/css" />
 <link rel="stylesheet" href="./layout2.css" type="text/css" />
@@ -3767,7 +3767,7 @@ raises two regression scenarios for existing documents:</p></div>
 <li>
 <p>
 You have escaped the expansion of enclosed inline elements, for
-   example: <code>\{id}</code>.  You would need to delete the backslashes: <code>{id}</code>
+   example: <code>{id}</code>.  You would need to delete the backslashes: <code>{id}</code>
    (if you don&#8217;t the backslashes will be printed). Mostly it&#8217;s just a
    case of interactively finding and replacing of all occurrences of
    `\.
@@ -7354,7 +7354,7 @@ Fixed: <em>tablewidth</em> was processed incorrectly when passed as table
 </li>
 <li>
 <p>
-Fixed: Glossary references like <code>{x=\{y}}</code> were one character off
+Fixed: Glossary references like <code>{x={y}}</code> were one character off
   if {x] was defined and <code>{y}</code> was not.
 </p>
 </li>
@@ -8455,7 +8455,7 @@ Fixed error that occurred when <em>==</em> title underline was
 <div id="footer">
 <div id="footer-text">
 Version 10.1.1<br />
-Last updated 2021-12-20 19:56:59 UTC<br />
+Last updated 2021-12-20 20:09:28 UTC<br />
 AsciiDoc is a trademark of the Eclipse Foundation, Inc.
 </div>
 <div id="footer-badges">
