@@ -19,19 +19,57 @@ rm -rf images
 popd
 
 # step 1: fetch some doc files from main repo
-mkdir -p docbook-xsl
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/configure.ac -O configure.ac
 wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/CHANGELOG.adoc -O doc/CHANGELOG.txt
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/asciidoc-docbook-xsl.txt -O docbook-xsl/asciidoc-docbook-xsl.txt
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/chunked.xsl -O docbook-xsl/chunked.xsl
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/common.xsl -O docbook-xsl/common.xsl
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/epub.xsl -O docbook-xsl/epub.xsl
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/fo.xsl -O docbook-xsl/fo.xsl
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/htmlhelp.xsl -O docbook-xsl/htmlhelp.xsl
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/manpage.xsl -O docbook-xsl/manpage.xsl
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/text.xsl -O docbook-xsl/text.xsl
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/xhtml.xsl -O docbook-xsl/xhtml.xsl
+wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/INSTALL.adoc -O doc/INSTALL.txt
 
+doc_files=(
+    a2x.1.txt
+    article-docinfo.xml
+    article.txt
+    asciidoc.1.txt
+    asciidoc.conf
+    asciidoc.dict
+    asciidoc.txt
+    asciidocapi.txt
+    asciimath.txt
+    book-multi.txt
+    book.txt
+    customers.csv
+    epub-notes.txt
+    faq.txt
+    latex-backend.txt
+    latex-bugs.txt
+    latex-filter.txt
+    latexmath.txt
+    latexmathml.txt
+    music-filter.txt
+    publishing-ebooks-with-asciidoc.txt
+    slidy-example.txt
+    slidy.txt
+    source-highlight-filter.txt
+    testasciidoc.1.txt
+    testasciidoc.txt
+)
+for file in "${doc_files[@]}"; do
+    wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/doc/${file} -O doc/${file}
+done
+
+mkdir -p docbook-xsl
+docbook_xsl=(
+    asciidoc-docbook-xsl.txt
+    chunked.xsl
+    common.xsl
+    epub.xsl
+    fo.xsl
+    htmlhelp.xsl
+    manpage.xsl
+    text.xsl
+    xhtml.xsl
+)
+for file in "${docbook_xsl[@]}"; do
+    wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/docbook-xsl/${file} -O docbook-xsl/${file}
+done
 
 ASCIIDOCVERSION=$(sed -n '1p' configure.ac | grep -o -e "[0-9]*\.[0-9]*\.[a-z0-9]*")
 # trying to embed this string with spaces into the command below causes
