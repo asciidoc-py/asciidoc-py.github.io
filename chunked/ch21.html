@@ -203,13 +203,10 @@ The <span class="emphasis"><em>depth</em></span> macro attribute sets the maximu
   a depth of ten.
 </li><li class="listitem">
 The <code class="literal">lines</code> macro attribute can be used to include specific lines of
-  the file. You can specify individual lines or a range of pages. To
-  specify a range, separate two numbers with <code class="literal">..</code>, for example
-  <code class="literal">lines="1..10"</code> would include the first 10 lines. You can specify the
-  last line of file as <code class="literal">-1</code>, for example <code class="literal">lines="10..-1"</code> would include
-  all lines after line 10. You can include multiple ranges or invdividual
-  pages by separating the ranges by a comma or semi-colon, for example
-  <code class="literal">lines="1..10,45,50..60"</code>.
+  the file. You can specify a range of pages by using <code class="literal">..</code> between
+  the two numbers, for example <code class="literal">1..10</code> would include the first 10
+  lines. You can include multiple ranges or invdividual pages by using
+  a comma or semi-colon, for example <code class="literal">1..10,45,50..60</code>.
 </li><li class="listitem">
 If the <span class="emphasis"><em>warnings</em></span> attribute is set to <span class="emphasis"><em>False</em></span> (or any other
   Python literal that evaluates to boolean false) then no warning

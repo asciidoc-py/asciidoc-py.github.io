@@ -1359,7 +1359,7 @@ The 'reftext' attribute can an also be set by the 'BlockId' element.
 |floatstyle |docbook |
 'floatstyle' is used to specify the floatstyle attribute for the
 titled table, example, image and equation blocks. This is useful when
-used in conjuction with the dblatex toolchain. A typical example
+used in conjunction with the dblatex toolchain. A typical example
 would be to specify the value as 'floatstyle="[htbp]"'.
 
 |====================================================================
@@ -2827,13 +2827,10 @@ headers.  Example:
   nesting inside the included file. By default, nesting is limited to
   a depth of ten.
 - The `lines` macro attribute can be used to include specific lines of
-  the file. You can specify individual lines or a range of pages. To
-  specify a range, separate two numbers with `..`, for example
-  `lines="1..10"` would include the first 10 lines. You can specify the
-  last line of file as `-1`, for example `lines="10..-1"` would include
-  all lines after line 10. You can include multiple ranges or invdividual
-  pages by separating the ranges by a comma or semi-colon, for example
-  `lines="1..10,45,50..60"`.
+  the file. You can specify a range of pages by using `..` between
+  the two numbers, for example `1..10` would include the first 10
+  lines. You can include multiple ranges or invdividual pages by using
+  a comma or semi-colon, for example `1..10,45,50..60`.
 - If the 'warnings' attribute is set to 'False' (or any other
   Python literal that evaluates to boolean false) then no warning
   message is printed if the included file does not exist. By default
