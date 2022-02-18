@@ -23,6 +23,7 @@ jobs:
     - name: Install apt dependencies
       run: |
         sudo apt-get install -y --no-install-recommends \
+          dblatex \
           docbook-xml \
           docbook-xsl \
           dvipng \
