@@ -19,9 +19,9 @@ rm -rf images
 popd
 
 # step 1: fetch some doc files from main repo
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/configure.ac -O configure.ac
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/CHANGELOG.adoc -O doc/CHANGELOG.txt
-wget https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/INSTALL.adoc -O doc/INSTALL.txt
+wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/configure.ac -O configure.ac
+wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/CHANGELOG.adoc -O doc/CHANGELOG.txt
+wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/INSTALL.adoc -O doc/INSTALL.txt
 
 doc_files=(
     a2x.1.txt
@@ -68,7 +68,7 @@ docbook_xsl=(
     xhtml.xsl
 )
 for file in "${docbook_xsl[@]}"; do
-    wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/docbook-xsl/${file} -O docbook-xsl/${file}
+    wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/${file} -O docbook-xsl/${file}
 done
 
 ASCIIDOCVERSION=$(sed -n '1p' configure.ac | grep -o -e "[0-9]*\.[0-9]*\.[a-z0-9]*")
@@ -138,7 +138,7 @@ mv gh-pages/asciidoc.chunked gh-pages/chunked
 
 ${ASCIIDOC} -n -b docbook gh-pages/article.txt
 pushd gh-pages
-xsltproc --nonet --stringparam admon.textlabel 0 ../docbook-xsl//fo.xsl article.xml > article.fo
+xsltproc --nonet --stringparam admon.textlabel 0 ../docbook-xsl/fo.xsl article.xml > article.fo
 fop article.fo article.pdf
 { set +x; } 2>/dev/null
 rm gh-pages/article.xml
