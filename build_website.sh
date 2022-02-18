@@ -23,6 +23,7 @@ wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/configure
 wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/CHANGELOG.adoc -O doc/CHANGELOG.txt
 wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/INSTALL.adoc -O doc/INSTALL.txt
 
+{ set +x; } 2>/dev/null
 doc_files=(
     a2x.1.txt
     article-docinfo.xml
@@ -52,7 +53,9 @@ doc_files=(
     testasciidoc.txt
 )
 for file in "${doc_files[@]}"; do
+    set -x
     wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/doc/${file} -O doc/${file}
+    { set +x; } 2>/dev/null
 done
 
 mkdir -p docbook-xsl
@@ -68,7 +71,9 @@ docbook_xsl=(
     xhtml.xsl
 )
 for file in "${docbook_xsl[@]}"; do
+    set -x
     wget -q https://raw.githubusercontent.com/asciidoc-py/asciidoc-py/main/asciidoc/resources/docbook-xsl/${file} -O docbook-xsl/${file}
+    { set +x; } 2>/dev/null
 done
 
 ASCIIDOCVERSION=$(sed -n '1p' configure.ac | grep -o -e "[0-9]*\.[0-9]*\.[a-z0-9]*")
