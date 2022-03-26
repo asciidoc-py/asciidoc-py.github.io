@@ -256,7 +256,7 @@ add additional ones:
   'CRAN' (just run `install.packages("ascii")` from R).  Briefly,
   'ascii' replaces R results in AsciiDoc document with AsciiDoc
   markup.  More information and examples here:
-  http://eusebe.github.com/ascii/.
+  https://eusebe.github.io/ascii/.
 - Jared Henley has written
   https://jared.henley.id.au/software/awb/[AsciiDoc
   Website Builder]. 'AsciiDoc Website Builder' (awb) is a Python
