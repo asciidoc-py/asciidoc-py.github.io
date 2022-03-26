@@ -24,7 +24,7 @@ Introduction
 
 AsciiDoc.py is a legacy processor for this syntax, handling an older
 rendition of AsciiDoc. As such, this will not properly handle the
-https://projects.eclipse.org/projects/technology.asciidoc[current AsciiDoc specification].
+https://projects.eclipse.org/projects/asciidoc.asciidoc-lang[current AsciiDoc specification].
 It is suggested that unless you specifically require the AsciiDoc.py
 toolchain, you should find a processor that handles the modern AsciiDoc
 syntax.
