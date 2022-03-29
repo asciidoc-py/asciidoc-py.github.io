@@ -24,7 +24,7 @@ Introduction
 
 AsciiDoc.py is a legacy processor for this syntax, handling an older
 rendition of AsciiDoc. As such, this will not properly handle the
-https://projects.eclipse.org/projects/technology.asciidoc[current AsciiDoc specification].
+https://projects.eclipse.org/projects/asciidoc.asciidoc-lang[current AsciiDoc specification].
 It is suggested that unless you specifically require the AsciiDoc.py
 toolchain, you should find a processor that handles the modern AsciiDoc
 syntax.
@@ -256,7 +256,7 @@ add additional ones:
   'CRAN' (just run `install.packages("ascii")` from R).  Briefly,
   'ascii' replaces R results in AsciiDoc document with AsciiDoc
   markup.  More information and examples here:
-  http://eusebe.github.com/ascii/.
+  https://eusebe.github.io/ascii/.
 - Jared Henley has written
   https://jared.henley.id.au/software/awb/[AsciiDoc
   Website Builder]. 'AsciiDoc Website Builder' (awb) is a Python
@@ -267,7 +267,7 @@ add additional ones:
   programming' using AsciiDoc.  The set of tools is called
   http://eweb.sourceforge.net/[eWEB].
 - https://vanderwijk.info/[Ivo's blog] describes a
-  https://ditaa.sourceforge.net/[ditaa] filter for AsciiDoc which converts
+  http://ditaa.sourceforge.net/[ditaa] filter for AsciiDoc which converts
   https://en.wikipedia.org/wiki/ASCII_art[ASCII art] into graphics.
 - https://github.com/gollum/gollum[Gollum] is a git-powered wiki, it
   supports various formats, including AsciiDoc.
