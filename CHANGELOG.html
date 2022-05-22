@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 10.1.4" />
+<meta name="generator" content="AsciiDoc 10.2.0" />
 <title>AsciiDoc ChangeLog</title>
 <link rel="stylesheet" href="./asciidoc.css" type="text/css" />
 <link rel="stylesheet" href="./layout2.css" type="text/css" />
@@ -42,6 +42,44 @@ asciidoc.install();
 <h1>AsciiDoc ChangeLog</h1>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="_version_10_2_0_2022_05_22">Version 10.2.0 (2022-05-22)</h2>
+<div class="sectionbody">
+<div class="paragraph"><div class="title">Future feature</div><p>As part of the intended 10.3.0 release, the following document attribute flags will be reserved for modifying asciidoc-py runtime behavior:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>future-compat</code>
+</p>
+</li>
+<li>
+<p>
+<code>legacy-compat</code>
+</p>
+</li>
+<li>
+<p>
+<code>compat-mode</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Please see <a href="https://github.com/asciidoc-py/asciidoc-py/issues/254">GH issue #254</a> for more information.</p></div>
+<div class="ulist"><div class="title">Bug fixes</div><ul>
+<li>
+<p>
+Fix verbose output not working when using a2x or asciidoc entry points
+</p>
+</li>
+</ul></div>
+<div class="ulist"><div class="title">Miscellaneous</div><ul>
+<li>
+<p>
+Automate publishing asciidoc-py website as part of release process
+</p>
+</li>
+</ul></div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_version_10_1_4_2022_03_01">Version 10.1.4 (2022-03-01)</h2>
 <div class="sectionbody">
@@ -8522,8 +8560,8 @@ Fixed error that occurred when <em>==</em> title underline was
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Version 10.1.4<br />
-Last updated 2022-03-29 14:54:31 UTC<br />
+Version 10.2.0<br />
+Last updated 2022-05-22 17:09:16 UTC<br />
 AsciiDoc is a trademark of the Eclipse Foundation, Inc.
 </div>
 <div id="footer-badges">
